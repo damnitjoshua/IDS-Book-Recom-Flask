@@ -41,23 +41,23 @@ def random(count):
     return books
 
 
-@app.route('/knn/<ISBN>')
-def knn(ISBN):
-    search = RatingCountDFPivot.loc[ISBN]
+# @app.route('/knn/<ISBN>')
+# def knn(ISBN):
+#     search = RatingCountDFPivot.loc[ISBN]
 
-    distances, indices = model.kneighbors(
-        search.values.reshape(1, -1), n_neighbors=6)
+#     distances, indices = model.kneighbors(
+#         search.values.reshape(1, -1), n_neighbors=6)
 
-    books = []
+#     books = []
 
-    for i in range(0, len(distances.flatten())):
-        if i != 0:
-            book = RatingCountDF.iloc[indices.flatten()[i]]
-            books.append({
-                "title": book['Title'],
-                "isbn": book['ISBN'],
-                "image": book['Image'],
-                "distance": distances.flatten()[i]
-            })
+#     for i in range(0, len(distances.flatten())):
+#         if i != 0:
+#             book = RatingCountDF.iloc[indices.flatten()[i]]
+#             books.append({
+#                 "title": book['Title'],
+#                 "isbn": book['ISBN'],
+#                 "image": book['Image'],
+#                 "distance": distances.flatten()[i]
+#             })
 
-    return books[::-1]
+#     return books[::-1]
