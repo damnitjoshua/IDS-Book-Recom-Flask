@@ -1,19 +1,14 @@
 {
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/index.py"
-    }
-  ],
-  "functions": {
-    "api/**/*.py": {
-      "excludeFiles": "**/*.csv"
-    }
-  }
+	"builds": [
+		{
+			"src": "api/index.py",
+			"use": "@vercel/python"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "api/index.py"
+		}
+	]
 }
