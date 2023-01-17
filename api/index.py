@@ -2,6 +2,8 @@ from flask import Flask
 import pickle
 import numpy as np
 import pandas as pd
+from joblib import load
+
 
 app = Flask(__name__)
 
@@ -41,7 +43,7 @@ def random(count):
 
 @app.route('/knn/<ISBN>')
 def knn(ISBN):
-    model = pickle.load(open('model/knn_bookRecom_model.sav', 'rb'))
+    model = load("model/knn_bookRecom_model.sav")
     search = RatingCountDFPivot.loc[ISBN]
 
     distances, indices = model.kneighbors(
