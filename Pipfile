@@ -1,0 +1,10 @@
+[[source]]
+url = "https://ids-book-recom-flask.vercel.app"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+
+[requires]
+python_version = "3.10.8"
