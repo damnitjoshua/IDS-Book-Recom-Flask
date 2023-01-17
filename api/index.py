@@ -1,4 +1,3 @@
-import warnings
 from flask import Flask
 import pickle
 import numpy as np
@@ -6,7 +5,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-warnings.filterwarnings("ignore", category =RuntimeWarning)
 model = pickle.load(open('model/knn_bookRecom_model.sav', 'rb'))
 
 # Rating count more than 50
